@@ -1,16 +1,27 @@
-# cogsci
+# Webtoon Frame Viewer
 
-A new Flutter project.
+A minimal Flutter-based webtoon frame viewer that displays sequential images with smooth fade transitions.  
+This app is designed to load a series of images (e.g., Barbarian Lady 1–8 or Each One's D-Day 1–7) and play them automatically with user-controlled timing.
 
-## Getting Started
+You can try a related concept demonstration here:  
+🔗 **https://joon363.github.io/Cogsci_project/**
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📁 Load two different webtoon sets:
+    - *Barbarian Lady* (1–8)
+    - *Each One's D-Day* (1–7)
+- 🎞️ Smooth fade animation between frames (no flickering or blackout)
+- ⏱ Adjustable playback interval (500 ms ~ 1500 ms)
+- 🔁 Auto-play from frame 1 to the final frame
+- ⛔ Playback stops automatically at the last frame
+- 🔄 “Restart” button appears when the sequence is finished
+- 🔘 Radio buttons to switch between webtoon sets
+- ⚡ Images are fully pre-cached for instant loading
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 📂 Project Structure
+
