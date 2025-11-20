@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class WebtoonViewer extends StatelessWidget {
 
 enum PlayerState { idle, playing, finished }
 enum SpeedMode { slow, fast }
-enum WebtoonType { barbarian, dday }
+enum WebtoonType { letter, dday }
 
 class ViewerPage extends StatefulWidget {
   @override
@@ -29,12 +30,12 @@ class ViewerPage extends StatefulWidget {
 class _ViewerPageState extends State<ViewerPage> {
   PlayerState playerState = PlayerState.idle;
   SpeedMode speed = SpeedMode.slow;
-  WebtoonType webtoon = WebtoonType.barbarian;
+  WebtoonType webtoon = WebtoonType.letter;
 
-  List<String> barbarianImages =
-  List.generate(8, (i) => "assets/images/바바리안영애${i + 1}.png");
+  List<String> letterImages =
+  List.generate(15, (i) => "assets/images/a${i + 1}.png");
   List<String> ddayImages =
-  List.generate(7, (i) => "assets/images/각자의디데이${i + 1}.png");
+  List.generate(11, (i) => "assets/images/b${i + 1}.png");
 
   int currentIndex = -1;
   Timer? playbackTimer;
@@ -42,7 +43,7 @@ class _ViewerPageState extends State<ViewerPage> {
   int get delayMs => speed == SpeedMode.slow ? 3000 : 1500;
 
   List<String> get currentImageList =>
-      webtoon == WebtoonType.barbarian ? barbarianImages : ddayImages;
+      webtoon == WebtoonType.letter ? letterImages : ddayImages;
 
   @override
   void dispose() {
@@ -179,33 +180,28 @@ class _ViewerPageState extends State<ViewerPage> {
                   ),
 
                   // main button
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (playerState == PlayerState.idle) {
-                          startPlayback();
-                        } else if (playerState == PlayerState.playing) {
-                          stopPlayback();
-                        } else if (playerState == PlayerState.finished) {
-                          restartPlayback();
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: playerState == PlayerState.playing
-                            ? Colors.grey
-                            : Colors.blueAccent,
-                        foregroundColor: Colors.white,
-                      ),
-                      child: Text(
-                        playerState == PlayerState.finished
-                            ? "Replay"
-                            : playerState == PlayerState.playing
-                            ? "Stop"
-                            : "Start",
-                        style: TextStyle(
-                          fontSize: 16
-                        ),
-                      ),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (playerState == PlayerState.idle) {
+                        startPlayback();
+                      } else if (playerState == PlayerState.playing) {
+                        stopPlayback();
+                      } else if (playerState == PlayerState.finished) {
+                        restartPlayback();
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: playerState == PlayerState.playing
+                          ? Colors.grey
+                          : Colors.blueAccent,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Icon(
+                      playerState == PlayerState.finished
+                          ? Icons.replay
+                          : playerState == PlayerState.playing
+                          ? Icons.stop_circle_outlined
+                          : CupertinoIcons.arrowtriangle_right_fill,
                     ),
                   ),
 
@@ -217,7 +213,7 @@ class _ViewerPageState extends State<ViewerPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Radio(
-                          value: WebtoonType.barbarian,
+                          value: WebtoonType.letter,
                           groupValue: webtoon,
                           onChanged: (v) {
                             if (playerState == PlayerState.playing) return;
@@ -226,7 +222,7 @@ class _ViewerPageState extends State<ViewerPage> {
                           fillColor:
                           MaterialStateProperty.all<Color>(Colors.white),
                         ),
-                        const Text("바바리안", style: TextStyle(color: Colors.white)),
+                        const Text("웹툰1", style: TextStyle(color: Colors.white)),
                       ],
                     ),
                   ),
@@ -246,7 +242,7 @@ class _ViewerPageState extends State<ViewerPage> {
                           fillColor:
                           MaterialStateProperty.all<Color>(Colors.white),
                         ),
-                        const Text("각자의디데이",
+                        const Text("웹툰2",
                             style: TextStyle(color: Colors.white)),
                       ],
                     ),
