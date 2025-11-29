@@ -261,10 +261,10 @@ class _ViewerPageState extends State<ViewerPage> {
                   Row(
                     children: [
                       _buildWebtoonRadio(WebtoonType.webtoon0, "튜토리얼"),
-                      _buildWebtoonRadio(WebtoonType.webtoon1, "웹툰 1"),
-                      _buildWebtoonRadio(WebtoonType.webtoon2, "웹툰 2"),
-                      _buildWebtoonRadio(WebtoonType.webtoon3, "웹툰 3"),
-                      _buildWebtoonRadio(WebtoonType.webtoon4, "웹툰 4"),
+                      _buildWebtoonRadio(WebtoonType.webtoon1, "각자의 디데이"),
+                      _buildWebtoonRadio(WebtoonType.webtoon2, "수학 잘 하는 법"),
+                      _buildWebtoonRadio(WebtoonType.webtoon3, "유일무이 로맨스"),
+                      _buildWebtoonRadio(WebtoonType.webtoon4, "봄의 편지"),
                     ],
                   ),
                 ],
