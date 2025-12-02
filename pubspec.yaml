@@ -59,11 +59,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    # Korean webtoons
     - assets/webtoon_kor/webtoon0/
     - assets/webtoon_kor/webtoon1/
     - assets/webtoon_kor/webtoon2/
     - assets/webtoon_kor/webtoon3/
     - assets/webtoon_kor/webtoon4/
+
+    # English webtoons
+    - assets/webtoon_eng/webtoon0/
+    - assets/webtoon_eng/webtoon1/
+    - assets/webtoon_eng/webtoon2/
+    - assets/webtoon_eng/webtoon3/
+    - assets/webtoon_eng/webtoon4/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
